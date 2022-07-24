@@ -1,6 +1,6 @@
 from math import sqrt
 from django.shortcuts import render
-from catalog.forms import TriangleForm
+from .forms import TriangleForm
 
 
 def triangle(request):
