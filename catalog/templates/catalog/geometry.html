@@ -9,7 +9,7 @@
     {% if answer %}
         <strong>Hypotenuse = {{ answer }}</strong>
     {% endif %}
-<form action="{% url 'triangle' %}" method="post">
+<form action="{% url 'catalog:triangle' %}" method="post">
     {% csrf_token %}
     {{ triangle_form.as_p }}
     <input type="submit" value="Calculate">
