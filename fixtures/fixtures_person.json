@@ -1,0 +1,47 @@
+[
+{
+  "model": "catalog.person",
+  "pk": 1,
+  "fields": {
+    "first_name": "Dave",
+    "last_name": "Peterson",
+    "email": "dave@example.com"
+  }
+},
+{
+  "model": "catalog.person",
+  "pk": 2,
+  "fields": {
+    "first_name": "John",
+    "last_name": "Mayson",
+    "email": "john@example.com"
+  }
+},
+{
+  "model": "catalog.person",
+  "pk": 3,
+  "fields": {
+    "first_name": "Kyle",
+    "last_name": "Frenson",
+    "email": "kyle@example.com"
+  }
+},
+{
+  "model": "catalog.person",
+  "pk": 4,
+  "fields": {
+    "first_name": "Luke",
+    "last_name": "Skywalker",
+    "email": "starwars@example.com"
+  }
+},
+{
+  "model": "catalog.person",
+  "pk": 5,
+  "fields": {
+    "first_name": "Master",
+    "last_name": "Anonimus",
+    "email": "hacker@example.com"
+  }
+}
+]

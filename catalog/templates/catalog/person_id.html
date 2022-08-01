@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><strong>Person with id {{ pk }}</strong></h1>
+{% if answer %}
+    <strong>Information about person with id {{ pk }} was successfully updated</strong>
+{% endif %}
+<form action="{% url 'catalog:person_id' pk %}" method="post">
+    {% csrf_token %}
+    {{ person_form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
