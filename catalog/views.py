@@ -1,7 +1,8 @@
 from math import sqrt
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from catalog.forms import TriangleForm, PersonForm
 from .models import Person
+from django.contrib import messages
 
 
 def triangle(request):
@@ -23,9 +24,9 @@ def triangle(request):
 
 def person(request):
     if request.method == 'POST':
-        person_form = PersonForm()
-
-        print('OK')
+        person_form = PersonForm(request.POST)
+        person_form.save()
+        return redirect('/catalog/')
     else:
         person_form = PersonForm()
     return render(request, 'catalog/person.html', {
@@ -34,22 +35,16 @@ def person(request):
 
 
 def person_with_id(request, pk):
-    answer = None
-    if request.method == 'POST':
-        person_data = PersonForm(request.POST)
-        if person_data.is_valid():
-            data = person_data.cleaned_data
-            Person.objects.filter(id=pk).update(
-                first_name=data['first_name'],
-                last_name=data['last_name'],
-                email=data['email']
-            )
-            answer = True
     db_user = get_object_or_404(Person, pk=pk)
+    if request.method == 'POST':
+        person_data = PersonForm(request.POST, instance=db_user)
+        if person_data.is_valid():
+            person_data.save()
+            messages.success(request, f'Information about person with id {pk} was successfully updated')
+            return redirect('/catalog/')
     person_form = PersonForm(instance=db_user)
     return render(request, 'catalog/person_id.html', {
         'person_form': person_form,
         'pk': pk,
-        'answer': answer,
     })
 
