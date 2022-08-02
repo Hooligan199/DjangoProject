@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog</title>
+</head>
+<body>
+<h1><strong>Catalog</strong></h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<ul>
+    <li><a href="triangle/">Geometry</a></li>
+    <li><a href="person/">Person</a></li>
+    <li><a href="person/1">Person with id 1</a></li>
+</ul>
+</body>
+</html>

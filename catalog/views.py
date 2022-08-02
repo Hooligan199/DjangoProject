@@ -5,6 +5,10 @@ from .models import Person
 from django.contrib import messages
 
 
+def catalog_main(request):
+    return render(request, 'catalog/catalog_main.html', {})
+
+
 def triangle(request):
     if request.method == 'POST':
         triangle_form = TriangleForm(request.POST)
